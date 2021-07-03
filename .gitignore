@@ -1,0 +1,14 @@
+venv
+.ipynb_checkpoints
+__pycache__
+.idea
+
+examples/debug.ipynb
+examples/debug_params.json
+examples/debug_params2.json
+examples/Equations.ipynb
+
+examples/Data/*
+!examples/Data/COVID19_EUROPE.csv
+!examples/Data/GOOG.csv
+!examples/Data/SUNSPOTS.csv
