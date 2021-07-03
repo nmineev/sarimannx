@@ -33,7 +33,7 @@ seasonal differencing with season length s, we have a
 stationary time series ![y_t]. Then it can be represented as
 
 <p align="center">
-    <img src="./imgs/equations/eq04.png" alt="equation"/>
+    <img src="./imgs/equations/eq04.svg" alt="equation"/>
 </p>
 
 where
@@ -114,10 +114,10 @@ as illustrated in figure below:
 [y'_t = y_t - y_{t-1}]: ./imgs/equations/eq02.png
 [y'_t = y_t - y_{t-s}]: ./imgs/equations/eq03.png
 [y_t = \underbrace{{Trend}(t) + {SARMA}_t(p,\ q)\times(P,\ Q) + 
- {ANN}_t(r,\ g)\times(R,\ G)}_{\hat y_t} + \varepsilon_t]: ./imgs/equations/eq04.png
+ {ANN}_t(r,\ g)\times(R,\ G)}_{\hat y_t} + \varepsilon_t]: ./imgs/equations/eq04.svg
 [\hat y_t]: ./imgs/equations/eq05.png
 [x^{(0)}_t, \dots, x^{(h)}_t]: ./imgs/equations/eq06.png
-[\varepsilon_t = y_t - \hat y_t]: ./imgs/equations/eq07.png
+[\varepsilon_t = y_t - \hat y_t]: ./imgs/equations/eq07.svg
 [p,\ r]: ./imgs/equations/eq08.png
 [{SARMA}]: ./imgs/equations/SARMA.png
 [{ANN}]: ./imgs/equations/ANN.png

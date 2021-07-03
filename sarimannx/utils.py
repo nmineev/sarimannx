@@ -274,7 +274,7 @@ class Validation:
         try:
             if y is None:
                 y = list()
-            y = np.array(y, dtype=float).squeeze()
+            y = np.array(y, dtype=float)
             if y.ndim != 1:
                 raise ValueError
         except (TypeError, ValueError):

@@ -8,7 +8,6 @@ examples/debug_params.json
 examples/debug_params2.json
 examples/Equations.ipynb
 
-examples/Data/*
-!examples/Data/COVID19_EUROPE.csv
-!examples/Data/GOOG.csv
-!examples/Data/SUNSPOTS.csv
+examples/Data/data.csv
+examples/Data/owid-covid-data.csv
+examples/Data/SN_y_tot_V2.0.csv
