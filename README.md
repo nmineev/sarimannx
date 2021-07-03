@@ -47,20 +47,20 @@ where
   time t, which often referred to as the innovation or shock 
   at time t;
 
-* ![p,\ r] -- AutoRegression(AR) orders of ![{SARMA}] and ![{ANN}];
+* ![p,\ r] -- AutoRegression(AR) orders of ![{SARMA}] and ![{ANN}]
 
-* ![q,\ g] -- MovingAverage(MA) orders of ![{SARMA}] and ![{ANN}];
+* ![q,\ g] -- MovingAverage(MA) orders of ![{SARMA}] and ![{ANN}]
 
 * ![P = (P_0, \dots, P_k),\ R = (R_0, \dots, R_u)] -- set of 
-  seasonal AR lags of ![{SARMA}] and ![{ANN}];
+  seasonal AR lags of ![{SARMA}] and ![{ANN}]
 
 * ![Q = (Q_0, \dots, Q_l),\ G = (G_0, \dots, G_v)] -- set of 
-  seasonal MA lags of ![{SARMA}] and ![{ANN}];
+  seasonal MA lags of ![{SARMA}] and ![{ANN}]
 
 * ![{Trend}(t)] -- trend polynomial;
 
 * ![{SARMA}_t(p,\ q)\times(P,\ Q) = \mathbf{W_{sarima}} \cdot 
-  \mathbf{y^{(t-1)}_{sarima}}],
+  \mathbf{y^{(t-1)}_{sarima}}]
 
     * ![\mathbf{y^{(t-1)}_{sarima}} = (y_{t-1}, \dots, y_{t-p}, y_{t-P_0}, \dots, y_{t-P_k}, 
       \varepsilon_{t-1}, \dots, \varepsilon_{t-q}, \varepsilon_{t-Q_0}, \dots, \varepsilon_{t-Q_l},
@@ -68,10 +68,10 @@ where
     
     * ![\mathbf{W_{sarima}}] -- weights vector;
 
-* ![{ANN}_t(r,\ g)\times(R,\ G) = \mathbf{W^{(n)}_{ann}} \cdot 
+* ![\begin{aligned}{ANN}_t(r,\ g)\times(R,\ G) = \mathbf{W^{(n)}_{ann}} \cdot 
     F(\dots F(\mathbf{W^{(1)}_{ann}} \cdot 
     F(\mathbf{W^{(0)}_{ann}} \cdot \mathbf{y^{(t-1)}_{ann}} + 
-    \mathbf{b^{(0)}_{ann}}) + \mathbf{b^{(1)}_{ann}})\dots)]
+    \mathbf{b^{(0)}_{ann}}) + \mathbf{b^{(1)}_{ann}})\dots)\end{aligned}]
 
     * ![\mathbf{y^{(t-1)}_{ann}} = (y_{t-1}, \dots, y_{t-r}, y_{t-R_0}, \dots, y_{t-R_u}, 
         \varepsilon_{t-1}, \dots, \varepsilon_{t-g}, \varepsilon_{t-G_0}, \dots, \varepsilon_{t-G_v},
@@ -88,7 +88,7 @@ where
     * ![F(\cdot)] -- vector function;
     
 This model is 
-![SARIMANNX(p,\ q,\ d,\ r,\ g)\times(P,\ Q,\ D,\ R,\ G,\ s)].
+![{SARIMANNX}(p,\ q,\ d,\ r,\ g)\times(P,\ Q,\ D,\ R,\ G,\ s)]
 
 **SARIMANNX** can be considered as a recurrent neural 
 network (RNN) with skip connections that produce an output 
@@ -100,7 +100,7 @@ as illustrated in figure below:
 
 (here 
 ![\mathbf{\varepsilon^{(t-1)}} = (\varepsilon_{t-1}, 
-  \dots, \varepsilon_{t-MAX\_MA\_LAG})],
+  \dots, \varepsilon_{t-MAX\_MA\_LAG})]
 ![\mathbf{y^{(t-1)}} = (y_{t-1}, \dots, y_{t-MAX\_AR\_LAG}, 
   x^{(0)}_{t-1}, \dots, x^{(h)}_{t-1})]
 )
@@ -110,42 +110,42 @@ as illustrated in figure below:
     "SARIMANNX as RNN"
 )
 
-[y_t]: ./imgs/equations/eq01.png
-[y'_t = y_t - y_{t-1}]: ./imgs/equations/eq02.png
-[y'_t = y_t - y_{t-s}]: ./imgs/equations/eq03.png
+[y_t]: ./imgs/equations/eq01.svg
+[y'_t = y_t - y_{t-1}]: ./imgs/equations/eq02.svg
+[y'_t = y_t - y_{t-s}]: ./imgs/equations/eq03.svg
 [y_t = \underbrace{{Trend}(t) + {SARMA}_t(p,\ q)\times(P,\ Q) + 
  {ANN}_t(r,\ g)\times(R,\ G)}_{\hat y_t} + \varepsilon_t]: ./imgs/equations/eq04.svg
-[\hat y_t]: ./imgs/equations/eq05.png
-[x^{(0)}_t, \dots, x^{(h)}_t]: ./imgs/equations/eq06.png
+[\hat y_t]: ./imgs/equations/eq05.svg
+[x^{(0)}_t, \dots, x^{(h)}_t]: ./imgs/equations/eq06.svg
 [\varepsilon_t = y_t - \hat y_t]: ./imgs/equations/eq07.svg
-[p,\ r]: ./imgs/equations/eq08.png
-[{SARMA}]: ./imgs/equations/SARMA.png
-[{ANN}]: ./imgs/equations/ANN.png
-[q,\ g]: ./imgs/equations/eq09.png
-[P = (P_0, \dots, P_k),\ R = (R_0, \dots, R_u)]: ./imgs/equations/eq10.png
-[Q = (Q_0, \dots, Q_l),\ G = (G_0, \dots, G_v)]: ./imgs/equations/eq11.png
-[{Trend}(t)]: ./imgs/equations/eq12.png
-[{SARMA}_t(p,\ q)\times(P,\ Q) = \mathbf{W_{sarima}} \cdot \mathbf{y^{(t-1)}_{sarima}}]: ./imgs/equations/eq13.png
+[p,\ r]: ./imgs/equations/eq08.svg
+[{SARMA}]: ./imgs/equations/SARMA.svg
+[{ANN}]: ./imgs/equations/ANN.svg
+[q,\ g]: ./imgs/equations/eq09.svg
+[P = (P_0, \dots, P_k),\ R = (R_0, \dots, R_u)]: ./imgs/equations/eq10.svg
+[Q = (Q_0, \dots, Q_l),\ G = (G_0, \dots, G_v)]: ./imgs/equations/eq11.svg
+[{Trend}(t)]: ./imgs/equations/eq12.svg
+[{SARMA}_t(p,\ q)\times(P,\ Q) = \mathbf{W_{sarima}} \cdot \mathbf{y^{(t-1)}_{sarima}}]: ./imgs/equations/eq13.svg
 [\mathbf{y^{(t-1)}_{sarima}} = (y_{t-1}, \dots, y_{t-p}, y_{t-P_0}, \dots, y_{t-P_k}, 
  \varepsilon_{t-1}, \dots, \varepsilon_{t-q}, \varepsilon_{t-Q_0}, \dots, \varepsilon_{t-Q_l}, 
- x^{(0)}_t, \dots, x^{(h)}_t)]: ./imgs/equations/eq14.png
-[\mathbf{W_{sarima}}]: ./imgs/equations/eq15.png
-[{ANN}_t(r,\ g)\times(R,\ G) = \mathbf{W^{(n)}_{ann}} \cdot 
+ x^{(0)}_t, \dots, x^{(h)}_t)]: ./imgs/equations/eq14.svg
+[\mathbf{W_{sarima}}]: ./imgs/equations/eq15.svg
+[\begin{aligned}{ANN}_t(r,\ g)\times(R,\ G) = \mathbf{W^{(n)}_{ann}} \cdot 
  F(\dots F(\mathbf{W^{(1)}_{ann}} \cdot 
  F(\mathbf{W^{(0)}_{ann}} \cdot \mathbf{y^{(t-1)}_{ann}} + 
- \mathbf{b^{(0)}_{ann}}) + \mathbf{b^{(1)}_{ann}})\dots)]: ./imgs/equations/eq16.png
+ \mathbf{b^{(0)}_{ann}}) + \mathbf{b^{(1)}_{ann}})\dots)\end{aligned}]: ./imgs/equations/eq16.svg
 [\mathbf{y^{(t-1)}_{ann}} = (y_{t-1}, \dots, y_{t-r}, y_{t-R_0}, \dots, y_{t-R_u}, 
  \varepsilon_{t-1}, \dots, \varepsilon_{t-g}, \varepsilon_{t-G_0}, \dots, \varepsilon_{t-G_v},
- x^{(0)}_t, \dots, x^{(h)}_t)]: ./imgs/equations/eq17.png
-[\mathbf{W^{(0)}_{ann}}, \dots, \mathbf{W^{(n-1)}_{ann}}]: ./imgs/equations/eq18.png
-[\mathbf{W^{(n)}_{ann}}]: ./imgs/equations/eq19.png
-[\mathbf{b^{(0)}_{ann}}, \dots, \mathbf{b^{(n-1)}_{ann}}]: ./imgs/equations/eq20.png
-[F(\cdot)]: ./imgs/equations/eq21.png
-[SARIMANNX(p,\ q,\ d,\ r,\ g)\times(P,\ Q,\ D,\ R,\ G,\ s)]: ./imgs/equations/eq22.png
+ x^{(0)}_t, \dots, x^{(h)}_t)]: ./imgs/equations/eq17.svg
+[\mathbf{W^{(0)}_{ann}}, \dots, \mathbf{W^{(n-1)}_{ann}}]: ./imgs/equations/eq18.svg
+[\mathbf{W^{(n)}_{ann}}]: ./imgs/equations/eq19.svg
+[\mathbf{b^{(0)}_{ann}}, \dots, \mathbf{b^{(n-1)}_{ann}}]: ./imgs/equations/eq20.svg
+[F(\cdot)]: ./imgs/equations/eq21.svg
+[{SARIMANNX}(p,\ q,\ d,\ r,\ g)\times(P,\ Q,\ D,\ R,\ G,\ s)]: ./imgs/equations/eq22.svg
 [\mathbf{\varepsilon^{(t-1)}} = (\varepsilon_{t-1}, 
- \dots, \varepsilon_{t-MAX\_MA\_LAG})]: ./imgs/equations/eq23.png
+ \dots, \varepsilon_{t-MAX\_MA\_LAG})]: ./imgs/equations/eq23.svg
 [\mathbf{y^{(t-1)}} = (y_{t-1}, \dots, y_{t-MAX\_AR\_LAG}, 
- x^{(0)}_{t-1}, \dots, x^{(h)}_{t-1})]: ./imgs/equations/eq24.png
+ x^{(0)}_{t-1}, \dots, x^{(h)}_{t-1})]: ./imgs/equations/eq24.svg
 
 ## Implementation reference
 <dl>
